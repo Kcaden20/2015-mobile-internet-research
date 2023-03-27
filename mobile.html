@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Mbl.IR</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="viewport" content="width=device-width, height=device-height">
+		<meta name="msapplication-tap-highlight" content="no" />
+		<link href='https://fonts.googleapis.com/css?family=Anonymous+Pro:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<style>
+			
+			
+			body {
+				margin: 0px;
+				background-color: red;
+				overflow:hidden;
+				overflow-y: hidden;
+				
+			}
+
+			#info {
+				position: relative;
+				width: 100%;
+				color: #000000;
+				padding: 5px;
+				font-family:Monospace;
+				font-size:30px;
+				font-weight: bold;
+				text-align:center;
+				z-index: -100
+			}
+
+			a {
+				color: #ffffff;
+				font-style: italic;
+				font-size: 20px;
+				line-height: 40px;
+			}
+			
+			#container {position:absolute;
+				top:0px;
+				left:0px;
+				margin: 0px;
+				background-color: green;
+			}
+			
+			#first {
+				z-index: 50;
+				    position: absolute;
+				    width:0px;
+				    height:0px;
+			    background-color: transparent;
+			    color: transparent;
+			    text-transform: uppercase;
+			    font-size: 1.125em;
+			    letter-spacing: 1px;
+			    font-weight: 300;
+			    text-align: center;
+			    padding: none;
+			    margin-top: none;
+			    position:absolute;
+			    box-shadow: none;
+				
+			}
+			ol {
+			    padding: 0;
+			    list-style-type: none;
+			}
+			
+			h1 {
+				font-family: 'Anonymous Pro' ;
+				font-style: bold;
+				line-height: 20px;
+				font-size: 20px;
+				color:white;
+			}
+			img {
+				width:150px;
+			}
+			.end {/* position: absolute; */
+			    top:0px;
+			    background-color: #ff0000;
+			    color: white;
+			    width:90%;
+			    height:100vh;
+			    font-family: 'Anonymous Pro' ;
+			    font-size: 1.125em;
+			    letter-spacing: 1px;
+			    font-weight: 300;
+			    text-align: left;
+			    padding: 1.5em;
+			    margin-top: 0.75em;
+			    line-height: 20pt;
+				 -webkit-linear-gradient(red, blue);
+  background: -o-linear-gradient(red, blue);  background: -moz-linear-gradient(red,blue); 
+  background: linear-gradient(red, blue);
+/*   				z-index: -1 */
+
+				
+			}
+			li {
+			    position: absolute;
+			    top:0px;
+			    background-color: #ff0000;
+			    color: white;
+			    width:110%;
+			    height:100vh;
+			    font-family: 'Anonymous Pro' ;
+			    font-size: 1.125em;
+			    letter-spacing: 1px;
+			    font-weight: 300;
+			    text-align: left;
+			    padding: 1.5em;
+			    margin-top: 0.75em;
+			    line-height: 15pt;
+			    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.44);
+			     -webkit-linear-gradient(orange, red);
+  background: -o-linear-gradient(orange, red);  background: -moz-linear-gradient(orange, red); 
+  background: linear-gradient(orange, red);
+			}
+			
+			li:nth-child(2) { -webkit-linear-gradient(#ffcc00 0%,  #ff5200 100%);
+  background: -o-linear-gradient(#ffcc00 0%,  #ff5200 100%);  background: -moz-linear-gradient(#ffcc00 0%,  #ff5200 100%); 
+  background: linear-gradient(#ffcc00 0%,  #ff5200 100%);  }
+			li:nth-child(3) {  -webkit-linear-gradient(blue, yellow);
+  background: -o-linear-gradient(blue, yellow);  background: -moz-linear-gradient(blue, yellow); 
+  background: linear-gradient(blue, yellow);  }
+			li:nth-child(4) { -webkit-linear-gradient(red, blue);
+  background: -o-linear-gradient(red, blue);  background: -moz-linear-gradient(red, blue); 
+  background: linear-gradient(red, blue);  }
+			li:nth-child(5) { -webkit-linear-gradient(orange, red);
+  background: -o-linear-gradient(orange, red);  background: -moz-linear-gradient(orange, red); 
+  background: linear-gradient(orange, red); }
+			li:nth-child(6) { -webkit-linear-gradient(#ffcc00 0%,  #ff5200 100%);
+  background: -o-linear-gradient(#ffcc00 0%, #ff5200 100%);  background: -moz-linear-gradient(#ffcc00 0%,  #ff5200 100%); 
+  background: linear-gradient(#ffcc00 0%,  #ff5200 100%);  }
+			#swipewrap {
+				position:absolute;
+				top:-15px;
+				width:100%;
+				height: 102vh;
+				overflow: hidden;
+				
+			}
+			
+			#liwrap {
+				position:absolute;
+				width:80%;
+			}
+			
+			.bodywrap {
+				overflow: hidden;
+				background-color: white;
+				width:100%;
+				height:100vh;
+			}
+			
+			.animate {
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            transition: all .3s;
+        }
+
+        #hit {
+            padding: 10px;
+            
+        }
+
+        #log {
+            position: absolute;
+            padding: 10px;
+        }
+		.back-link a {
+		color: #4ca340;
+		text-decoration: none; 
+		border-bottom: 1px #4ca340 solid;
+	}
+	.back-link a:hover,
+	.back-link a:focus {
+		color: #408536; 
+		text-decoration: none;
+		border-bottom: 1px #408536 solid;
+	}
+	
+	.entry-header {
+		text-align: left;
+		margin: 0 auto 50px auto;
+		width: 80%;
+        max-width: 978px;
+		position: relative;
+		z-index: 10001;
+	}
+
+		</style>
+	</head>
+	<body>
+
+		<div class="bodywrap">
+		<header class="entry-header">
+		
+		</header>
+
+		<div id="loader-wrapper">
+			<div id="loader"><img class="arrow" src="textures/Double_Arrow_White.png"></div>
+			
+			<div class="loader-section section-left"><h1 style="margin-left: 10px; font-size: 18pt;">Loading</h1></div>
+            <div class="loader-section section-right"></div>
+
+		</div>
+		<div id="info">
+			Mobile Internet Research Elective <br/>
+			<small>by Kevin Cadena</small>
+		</div>
+	<div id="swipewrap">
+		<div id="liwrap">
+<ol>
+    <li><h1>5/6 <br/>That is why I like the smart phone. Not only does it allow for a different area of digital design to be born, but it can rein in the libertarian principles of the virtual age.</h1><img src="textures/Arrowmoving.gif"></li>
+    <li><h1>4/6 <br/>The way the computer and internet has worked, it has all been about access and being able to just sift through information and because of that, we have lost our ability to self-retrain.</h1><img src="textures/Arrowmoving.gif"></li>
+    <li><h1>3/6 <br/>By the end of it, the ones with their bowl rigged had eaten 75 percent more, however were just still just hungry as group with the unrigged bowls.</h1> <img src="textures/Arrowmoving.gif"></li>
+    <li><h1>2/6 <br/>A study was done where two groups were given bowls of tomato soup, however one of the group's bowls were rigged so the bottom of the bowl had a tube that kept refilling it. </h1> <img src="textures/Arrowmoving.gif"></li>
+    <li><h1>1/6 <br/>What if thinking of content on our phone as never ending scrolls? We instead thought of them as cards? Small bits of information that summarizes what we need on the go. Just like the phone.</h1> <img src="textures/Arrowmoving.gif"></li>
+    <li><h1> A Small Rant on the state of Mobile Interaction <br/> By Kevin </h1><img src="textures/Arrowmoving.gif"> <br/><br/>Swipe Right to Continue<div id="container"></div></li>
+</ol>
+		</div>
+		
+		<div class="end">
+			<h1>6/6 <br/>Access is by no means bad, but through self-restraint we can incorporate technology a lot better into our lives.</h1>
+	<a href="Next/Part2.html">Click Here to Continue</a>
+	 <img src="textures/Arrow_click.gif"></div>
+		
+		
+	</div>
+	<script src="js/old/hammer-1.1.1-74c3a245b2081b735186d31209e4569f.js"></script>
+<script>
+    // Initialize the good old webDevBreak namespace
+    var webDevBreak = {};
+
+    webDevBreak.prepareForTouches = function() {
+
+        function dragElement(event) {
+            var elementToDrag = event.target;
+            // deltaX tracks the distance dragged along the x-axis since the initial touch.
+            elementToDrag.style.left = event.gesture.deltaX + 'px';
+        };
+
+        function deleteElement(event) {
+            var elementToDelete = event.target;
+            // Stop detecting touches on element when it's no longer needed. Can prevent odd behaviour.
+            event.gesture.stopDetect();
+            elementToDelete.style.display = 'none';
+        };
+
+        function resetElement(event) {
+            var elementToReset = event.target;
+            elementToReset.style.left = 0;
+        };
+
+        // Swipe options as recommended by:
+        // https://github.com/EightMedia/hammer.js/wiki/Tips-&-Tricks#horizontal-swipe-and-drag
+        var swipeOptions = { dragLockToAxis: true, dragBlockHorizontal: true };
+        function initTouchListeners(touchableElement) {
+            var touchControl = new Hammer(touchableElement, swipeOptions);
+            touchControl.on("dragright", dragElement)
+                    .on("swiperight", deleteElement)
+                    .on("release", resetElement);
+        };
+
+        var listItems = document.querySelectorAll('li');
+        for (var i = 0; i < listItems.length; i += 1) {
+            initTouchListeners(listItems[i]);
+        }
+    }
+    webDevBreak.prepareForTouchesWhenReady = function() {
+        document.addEventListener("DOMContentLoaded", webDevBreak.prepareForTouches);
+    };
+
+    webDevBreak.prepareForTouchesWhenReady();
+
+</script>
+
+		<script src="build/three.min.js"></script>
+		<script src="js/controls/DeviceOrientationControls.js"></script>
+		<script src="js/renderers/THREEx.WindowResize.js"></script>
+
+		<script>
+			(function() {
+				  "use strict"
+
+				  window.addEventListener('load', function() {
+
+						var container, camera, scene, renderer, controls, geometry, mesh;
+
+						var animate = function(){
+
+							window.requestAnimationFrame( animate );
+
+							controls.update();
+							renderer.render(scene, camera);
+
+						};
+
+						container = document.getElementById( 'container' );
+
+						camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
+
+						controls = new THREE.DeviceOrientationControls( camera );
+
+						scene = new THREE.Scene();
+						
+						var loader = new THREE.TextureLoader();
+						loader.load( 'textures/2294472375_24a3b8ef46_o2.jpg',
+						
+						
+						function( texture ){
+							var geometry = new THREE.SphereGeometry( 500, 50, 50 );
+						geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
+						
+							var material = new THREE.MeshBasicMaterial({
+								map: texture
+							});
+							
+							var mesh = new THREE.Mesh( geometry, material);
+							scene.add( mesh );
+						},
+						
+						function ( xhr ) {
+		console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+	},
+	// Function called when download errors
+	function ( xhr ) {
+		console.log( 'An error happened' );
+	}
+	
+						);
+						
+/*
+						var material = new THREE.MeshBasicMaterial( {
+								
+								map:THREE.ImageUtils.loadTexture( 'textures/2294472375_24a3b8ef46_o.jpg' )
+						} );
+*/
+
+						
+
+						var geometry = new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 );
+						var material = new THREE.MeshBasicMaterial( { color: 0xff00ff, side: THREE.BackSide, wireframe: true } );
+						var mesh = new THREE.Mesh( geometry, material );
+// 						scene.add( mesh );
+
+						renderer = new THREE.WebGLRenderer();
+						renderer.setPixelRatio(window.devicePixelRatio);
+						renderer.setSize(window.innerWidth, window.innerHeight);
+						renderer.domElement.style.position = 'absolute';
+						renderer.domElement.style.top = 0;
+						container.appendChild(renderer.domElement);
+						
+						THREEx.WindowResize(renderer, camera);
+/*
+						window.addEventListener('resize', function() {
+
+							camera.aspect = window.innerWidth / window.innerHeight;
+							camera.updateProjectionMatrix();
+							renderer.setSize( window.innerWidth, window.innerHeight );
+
+						}, false);
+						
+*/
+				
+
+						controls.connect();
+
+						animate();
+
+				  }, false);
+
+			})();
+		</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
